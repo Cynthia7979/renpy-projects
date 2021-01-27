@@ -1,5 +1,6 @@
 import sys
 import re
+import random
 
 
 class Dialogue(object):
@@ -21,8 +22,36 @@ class Dialogue(object):
         repr_str += self.msg
         return repr_str
 
-    def __str__(self):
-        return f'{self.character}: {self.msg}'
+    # def __str__(self):
+    #     return f'{self.character}: {self.msg}'
+
+
+class Log(object):
+    def __init__(self, dialogue_list=()):
+        self.log = list(dialogue_list)
+        self.characters = {}  # 全名：变量名  TODO 其实不需要nickname
+
+        if dialogue_list:
+            for dialogue in dialogue_list:
+                self._add_character(dialogue.character)
+
+    def add_dialogue(self, dialogue: Dialogue):
+        self.log.append(dialogue)
+        self._add_character(dialogue.character)
+
+    def _add_character(self, character):
+        if character not in self.characters.keys():
+            self.characters[character] = ''.join(list(filter(str.isalnum, character))[:3])  # 取前三个字当变量名
+
+    @property
+    def nickname(self):
+        return self.characters  # Syntax sugar
+
+    def __repr__(self):
+        return str(list(self.characters.keys())) + '\n'.join([str(d) for d in self.log])
+
+    def __iter__(self):
+        return iter(self.log)
 
 
 def main():
@@ -35,12 +64,12 @@ def main():
     else:
         log_file = open('./log.txt', encoding='utf-8')
 
-    dialog_list = raw2py(log_file)
-    print(''.join(str(dialog_list)))
+    generated_log_obj = raw2Log(log_file)
+    Log2rpy(generated_log_obj)
 
 
-def raw2py(raw_fh):
-    all_dialogues = []
+def raw2Log(raw_fh):
+    all_dialogues = Log()
     line_no = 0
     while True:
         isRolling = False
@@ -65,9 +94,54 @@ def raw2py(raw_fh):
                 success = False
         character = infoline[:re.search('\s\d\d\d\d/\d\d/\d\d', infoline).span()[0]]
         msg = msgline.replace('    ', '').replace('\n', '')
-        all_dialogues.append(Dialogue(character, msg, isRoll=isRolling, success=success))
+        all_dialogues.add_dialogue(
+            Dialogue(character, msg, isRoll=isRolling, success=success)
+        )
 
     return all_dialogues
+
+
+def Log2rpy(log: Log, filename='script.rpy'):
+    rpy_file = open(filename, 'wb')
+    buffer = ''
+
+    # 初始化人物变量
+    for character in log.characters.keys():
+        color = '#%02x%02x%02x' % (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))  # TODO 防止重复？
+        buffer += f'define {log.nickname[character]} = Character("{character}", color="{color}")\n'
+
+    # 初始化显示
+    buffer += """default preferences.afm_enable = True
+default preferences.afm_after_click = True
+
+label start:
+"""
+
+    last_character = None
+
+    for dlg in log:
+        if dlg.character != last_character:
+            buffer += f'    hide {log.nickname[last_character]}\n' if last_character is not None else '    scene bg\n'
+            buffer += f'    show {log.nickname[dlg.character]}\n'
+
+        if dlg.isRoll:
+            buffer += '    play sound "roll.mp3"\n'
+            if dlg.success:
+                buffer += '    queue sound "success.mp3"\n'
+            else:
+                buffer += '    queue sound "fail.mp3"\n'  # TODO 大成功+大失败
+
+        escaped_msg = dlg.msg.replace('\\', '\\\\') \
+            .replace('"', '\\"')\
+            .replace("'", "\\'")\
+            .replace(' ', '\\ ')
+        buffer += f'    {log.nickname[dlg.character]} "{escaped_msg}"\n'
+
+        last_character = dlg.character
+
+    rpy_file.write(buffer.encode('utf-8', errors='python-strict'))
+
+    return rpy_file
 
 
 if __name__ == '__main__':
