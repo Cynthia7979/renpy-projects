@@ -1,5 +1,5 @@
-define 游天 = Character("游天", color="#4fc9e2")
-define 田村雪 = Character("田村雪奈", color="#1a67de")
+define 游天 = Character("游天", color="#e2e96a")
+define 田村雪 = Character("田村雪奈", color="#96ad06")
 default preferences.afm_enable = True
 default preferences.afm_after_click = True
 
@@ -101,7 +101,8 @@ label start:
     游天 "SAN\ Check\ 0/1"
     hide 游天
     show 田村雪 at left
-    田村雪 ".sc\ 0/1"
+    play sound "roll.mp3"
+    queue sound "success.mp3"
     田村雪 "sancheck\ 成功\ 扣除0点san值"
     hide 田村雪
     show 游天 at left
@@ -154,7 +155,7 @@ label start:
     游天 "请行动"
     hide 游天
     show 田村雪 at left
-    田村雪 "看到还有活着的人，我心里略微惊喜了一下，为了保证安全你，我又转头查看那个正在咀嚼的怪物，想确认它有没有接近我的位置"
+    田村雪 "看到还有活着的人，我心里略微惊喜了一下，为了保证安全，我又转头查看那个正在咀嚼的怪物，想确认它有没有接近我的位置"
     田村雪 "那我查看车厢尾部正在咀嚼的黑暗有没有延伸过来"
     hide 田村雪
     show 游天 at left
@@ -390,7 +391,8 @@ label start:
     游天 "SAN\ Check\ 1/1d6"
     hide 游天
     show 田村雪 at left
-    田村雪 ".sc\ 1/1d6"
+    play sound "roll.mp3"
+    queue sound "fail.mp3"
     田村雪 "sancheck\ 失败\ 扣除(1d6\ =\ 6\ )=6点san值"
     hide 田村雪
     show 游天 at left

@@ -84,7 +84,7 @@ def raw2Log(raw_fh):
         elif not msgline.startswith('    '):
             print(f'Warning: Line number {line_no} does not start with an indent. Please check if it is really a msgline')
             print('Line:', msgline)
-        elif msgline.startswith('    .r'):  # Rolling dice
+        elif msgline.startswith('    .r') or msgline.startswith('    .sc'):  # Rolling dice
             infoline = raw_fh.readline()
             msgline = raw_fh.readline()
             line_no += 2
@@ -129,7 +129,7 @@ label start:
             buffer += '    play sound "roll.mp3"\n'
             if dlg.success:
                 buffer += '    queue sound "success.mp3"\n'
-            else:
+            elif dlg.success == False:
                 buffer += '    queue sound "fail.mp3"\n'  # TODO 大成功+大失败
 
         escaped_msg = dlg.msg.replace('\\', '\\\\') \
