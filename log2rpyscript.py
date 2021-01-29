@@ -66,6 +66,7 @@ def main():
 
     generated_log_obj = raw2Log(log_file)
     Log2rpy(generated_log_obj)
+    Log2LangDuNv(generated_log_obj)
 
 
 def raw2Log(raw_fh):
@@ -122,7 +123,7 @@ label start:
     for dlg in log:
         if dlg.character != last_character:
             buffer += f'    hide {log.nickname[last_character]}\n' if last_character is not None else '    scene bg\n'
-            buffer += f'    show {log.nickname[dlg.character]}\n'
+            buffer += f'    show {log.nickname[dlg.character]} at left\n'
 
         if dlg.isRoll:
             buffer += '    play sound "roll.mp3"\n'
@@ -142,6 +143,14 @@ label start:
     rpy_file.write(buffer.encode('utf-8', errors='python-strict'))
 
     return rpy_file
+
+
+def Log2LangDuNv(log: Log):
+    ldn_file = open('朗读女.txt', 'w', encoding='utf-8')
+    for dlg in log:
+        if not dlg.isRoll:
+            ldn_file.write(f'[{dlg.character}]\n{dlg.msg}\n\n')
+    return ldn_file
 
 
 if __name__ == '__main__':
