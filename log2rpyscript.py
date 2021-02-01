@@ -4,11 +4,11 @@ import random
 
 
 class Dialogue(object):
-    def __init__(self, character, msg, isRoll=False, success=None):
+    def __init__(self, character, msg, isRoll=False, status=None):
         self.character = character
         self.msg = msg
         self.isRoll = isRoll
-        self.success = success
+        self.status = status
 
     def __repr__(self):
         repr_str = ''
@@ -22,6 +22,10 @@ class Dialogue(object):
         repr_str += self.msg
         return repr_str
 
+    @property
+    def success(self):
+        return self.status in ('成功', '大成功')
+
     # def __str__(self):
     #     return f'{self.character}: {self.msg}'
 
@@ -29,7 +33,7 @@ class Dialogue(object):
 class Log(object):
     def __init__(self, dialogue_list=()):
         self.log = list(dialogue_list)
-        self.characters = {}  # 全名：变量名  TODO 其实不需要nickname
+        self.characters = {}  # 全名：变量名  TODO 其实不需要nickname（什么完了我看不懂自己写的注释了）
 
         if dialogue_list:
             for dialogue in dialogue_list:
@@ -74,7 +78,7 @@ def raw2Log(raw_fh):
     line_no = 0
     while True:
         isRolling = False
-        success = None
+        status = None
         infoline = raw_fh.readline()
         msgline = raw_fh.readline()
         line_no += 2
@@ -89,14 +93,18 @@ def raw2Log(raw_fh):
             msgline = raw_fh.readline()
             line_no += 2
             isRolling = True
-            if '成功' in msgline:
-                success = True
+            if '大成功' in msgline:
+                status = '大成功'
+            elif '成功' in msgline:
+                status = '成功'
+            elif '大失败' in msgline:
+                status = '大失败'
             elif '失败' in msgline:
-                success = False
+                status = '失败'
         character = infoline[:re.search('\s\d\d\d\d/\d\d/\d\d', infoline).span()[0]]
         msg = msgline.replace('    ', '').replace('\n', '')
         all_dialogues.add_dialogue(
-            Dialogue(character, msg, isRoll=isRolling, success=success)
+            Dialogue(character, msg, isRoll=isRolling, status=status)
         )
 
     return all_dialogues
@@ -127,10 +135,14 @@ label start:
 
         if dlg.isRoll:
             buffer += '    play sound "roll.mp3"\n'
-            if dlg.success:
+            if dlg.status == '大成功':
+                buffer += '    queue sound "bigsuccess.mp3"\n'
+            elif dlg.status == '成功':
                 buffer += '    queue sound "success.mp3"\n'
-            elif dlg.success == False:
-                buffer += '    queue sound "fail.mp3"\n'  # TODO 大成功+大失败
+            elif dlg.status == '大失败':
+                buffer += '    queue sound "bigfail.mp3"\n'
+            elif dlg.status == '失败':
+                buffer += '    queue sound "fail.mp3"\n'
 
         escaped_msg = dlg.msg.replace('\\', '\\\\') \
             .replace('"', '\\"')\

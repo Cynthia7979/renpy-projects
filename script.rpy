@@ -1,5 +1,5 @@
-define 游天 = Character("游天", color="#e2e96a")
-define 田村雪 = Character("田村雪奈", color="#96ad06")
+define 游天 = Character("游天", color="#7de198")
+define 田村雪 = Character("田村雪奈", color="#b93ebb")
 default preferences.afm_enable = True
 default preferences.afm_after_click = True
 
@@ -257,7 +257,6 @@ label start:
     show 游天 at left
     游天 "“什么黑暗？”他回头看去"
     play sound "roll.mp3"
-    queue sound "fail.mp3"
     游天 "他在昏暗的光线中眯了眯眼，似乎还是没有察觉到任何东西，继而用一种无措而茫然的眼神望着你"
     hide 游天
     show 田村雪 at left
@@ -408,10 +407,8 @@ label start:
     hide 游天
     show 田村雪 at left
     play sound "roll.mp3"
-    queue sound "fail.mp3"
     田村雪 "\ 骰出了:\ (1d10\ =\ 10\ )=10=10"
     play sound "roll.mp3"
-    queue sound "fail.mp3"
     田村雪 "\ 骰出了:\ (1d10\ =\ 1\ )=1=1"
     hide 田村雪
     show 游天 at left
@@ -520,8 +517,7 @@ label start:
     游天 "“哦对了，对了，还有一样他的物件，我们也不知道他从哪里搞来的，但我们不知道该交给谁，您能代为保管吗？”"
     hide 游天
     show 田村雪 at left
-    田村雪 "“原来如此吗……”在医生说出前半句话时，我怅然若失地说道。随即，我抬起头来，“是什么物件呢？”"
-    田村雪 "*\ 前半段"
+    田村雪 "“原来如此吗……”在医生说出前半段话时，我怅然若失地说道。随即，我抬起头来，“是什么物件呢？”"
     hide 田村雪
     show 游天 at left
     游天 "“哦..挺奇怪的，似乎是女式的呢..”他走回前台，最终将一件洗的干干净净的外衣递给了你。"
