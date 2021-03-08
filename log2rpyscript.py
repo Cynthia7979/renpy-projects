@@ -33,7 +33,7 @@ class Dialogue(object):
 class Log(object):
     def __init__(self, dialogue_list=()):
         self.log = list(dialogue_list)
-        self.characters = {}  # 全名：变量名  TODO 其实不需要nickname（什么完了我看不懂自己写的注释了）
+        self.characters = {}  # 全名：变量名
 
         if dialogue_list:
             for dialogue in dialogue_list:
@@ -45,7 +45,7 @@ class Log(object):
 
     def _add_character(self, character):
         if character not in self.characters.keys():
-            self.characters[character] = ''.join(list(filter(str.isalnum, character))[:3])  # 取前三个字当变量名
+            self.characters[character] = ''.join(list(filter(lambda s: s not in (' ',), character))).lower()  # 全部小写当变量名
 
     @property
     def nickname(self):

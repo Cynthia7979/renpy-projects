@@ -1,14 +1,18 @@
 # Cynthia7979的Ren'Py Projects
 本repo将实现：
-* 自动将猫爷TRPG的导出log转为`.rpy`脚本，其中包括：
+* 自动将[猫爷TRPG](https://maoyetrpg.com)的导出log转为`.rpy`脚本，其中包括：
     * 人物立绘自动切换
     * 骰子音效
     * 自动播放
     * **不包括：** 人物语音、背景音乐、背景转换、条件跳转、和所有没有列出来的东西
+* 将`.rpy`脚本转为含有朗读者标签的朗读女文件。
 
 参考：[【教程】如何使用Renpy制作跑团视频](https://blog.maddestroyer.xyz/2020/06/12/renpy/)
 
 本repo使用了fstring等特性，**仅适用于Python 3**。
+
+> 如果对实现方法不满意，请考虑自己调整样式。如果需要帮助或有其他建议，请
+>[创建一个Issue](https://github.com/Cynthia7979/renpy-projects/issues/new/choose)。
 
 ## Log转Ren'Py使用方法
 1. 在Ren'Py中创建一个新的工程，不要做什么改动
@@ -37,6 +41,26 @@
 
 程序同时会自动生成一个`朗读女.txt`，其中包括带标签的人物台词，使用方法参考[这篇教程](http://www.443w.com/tts/?post=26)
 （标签名使用人物名字）。
+
+**命令行语法：**
+
+```*\renpy-projects> log2rpyscript.py <log_file>```
+
+## Ren'Py转朗读女使用方法
+如果你喜欢手动编写Ren'Py脚本，或者希望根据更改后的脚本生成语音文件，那么可以直接使用`renpy2langdunv`将Ren'Py脚本转换为带标签的`txt`文件。
+
+**注意！** 这会覆盖`log2renpy`生成的朗读女文件。
+
+步骤：
+1. 将`script.rpy`复制到本文件夹
+2. 运行`renpy2langdunv.py`
+3. 使用朗读女打开生成的`朗读女.txt`，设定好朗读者后生成语音文件。使用方法参考[这篇教程](http://www.443w.com/tts/?post=26)
+
+`renpy2langdunv.py`会跳过包含"SAN CHECK"，"1d100"，"检定"等关键词的台词。可以在`should_pass()`中修改关键词列表。
+
+**命令行语法：**
+
+```*\renpy-projects> renpy2langdunv.py <rpy_script> <output_file>```
 
 ## 软件下载
 | 名称 | 下载链接 |
