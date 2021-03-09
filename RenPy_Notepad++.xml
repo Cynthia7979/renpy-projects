@@ -24,8 +24,8 @@
             <Keywords name="Folders in comment, open"></Keywords>
             <Keywords name="Folders in comment, middle"></Keywords>
             <Keywords name="Folders in comment, close"></Keywords>
-            <Keywords name="Keywords1">define label show scene at hide default transform</Keywords>
-            <Keywords name="Keywords2">True False left right center truecenter</Keywords>
+            <Keywords name="Keywords1">define label show scene at hide default transform init play queue image</Keywords>
+            <Keywords name="Keywords2">True False left right center truecenter sound</Keywords>
             <Keywords name="Keywords3"></Keywords>
             <Keywords name="Keywords4"></Keywords>
             <Keywords name="Keywords5"></Keywords>
@@ -40,7 +40,7 @@
             <WordsStyle name="LINE COMMENTS" fgColor="9C9491" bgColor="FFFFFF" fontName="&#x534E;&#x6587;&#x4E2D;&#x5B8B;" fontStyle="0" nesting="0" />
             <WordsStyle name="NUMBERS" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS1" fgColor="DF5320" bgColor="FFFFFF" fontName="&#x534E;&#x6587;&#x4E2D;&#x5B8B;" fontStyle="1" nesting="0" />
-            <WordsStyle name="KEYWORDS2" fgColor="C33FF3" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
+            <WordsStyle name="KEYWORDS2" fgColor="C33FF3" bgColor="FFFFFF" fontName="&#x534E;&#x6587;&#x4E2D;&#x5B8B;" fontStyle="1" nesting="0" />
             <WordsStyle name="KEYWORDS3" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS4" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS5" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
@@ -48,7 +48,7 @@
             <WordsStyle name="KEYWORDS7" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="KEYWORDS8" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="OPERATORS" fgColor="6666EA" bgColor="FFFFFF" fontName="" fontStyle="1" nesting="0" />
-            <WordsStyle name="FOLDER IN CODE1" fgColor="6666EA" bgColor="FFFFFF" fontName="" fontStyle="3" nesting="0" />
+            <WordsStyle name="FOLDER IN CODE1" fgColor="6666EA" bgColor="FFFFFF" fontName="&#x534E;&#x6587;&#x4E2D;&#x5B8B;" fontStyle="3" nesting="0" />
             <WordsStyle name="FOLDER IN CODE2" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="FOLDER IN COMMENT" fgColor="000000" bgColor="FFFFFF" fontName="" fontStyle="0" nesting="0" />
             <WordsStyle name="DELIMITERS1" fgColor="7B9726" bgColor="FFFFFF" fontName="&#x534E;&#x6587;&#x4E2D;&#x5B8B;" fontStyle="0" nesting="0" />
