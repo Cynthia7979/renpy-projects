@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5226970f-2314-4ded-ae34-60ea1aa8074b" name="Default Changelist" comment="" />
+    <list default="true" id="5226970f-2314-4ded-ae34-60ea1aa8074b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,15 +31,16 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Test/game" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\renpy-projects\Test\game" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.renpy2langdunv">
+  <component name="RunManager" selected="Python.scratch_11">
     <configuration name="log2rpyscript" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="renpy-projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -80,8 +83,30 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="scratch_11" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="renpy-projects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$APPLICATION_CONFIG_DIR$/scratches" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$APPLICATION_CONFIG_DIR$/scratches/scratch_11.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.scratch_11" />
         <item itemvalue="Python.renpy2langdunv" />
         <item itemvalue="Python.log2rpyscript" />
       </list>
@@ -104,61 +129,9 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="506" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612144440460">
+    <state x="270" y="54" key="SettingsEditor" timestamp="1628101646708">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="506" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1612144440460" />
-    <state x="477" y="25" key="#log2rpyscript" timestamp="1611668015998">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="477" y="25" key="#log2rpyscript/0.0.1536.824@0.0.1536.824" timestamp="1611668015998" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1611754421146">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611754421146" />
-    <state width="1515" height="203" key="GridCell.Tab.0.bottom" timestamp="1615209434315">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="203" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615209434315" />
-    <state width="1515" height="203" key="GridCell.Tab.0.center" timestamp="1615209434314">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="203" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615209434314" />
-    <state width="1515" height="203" key="GridCell.Tab.0.left" timestamp="1615209434314">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="203" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615209434314" />
-    <state width="1515" height="203" key="GridCell.Tab.0.right" timestamp="1615209434315">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="203" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615209434315" />
-    <state width="1515" height="261" key="GridCell.Tab.1.bottom" timestamp="1611761817230">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611761817230" />
-    <state width="1515" height="261" key="GridCell.Tab.1.center" timestamp="1611761817230">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611761817230" />
-    <state width="1515" height="261" key="GridCell.Tab.1.left" timestamp="1611761817230">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611761817230" />
-    <state width="1515" height="261" key="GridCell.Tab.1.right" timestamp="1611761817230">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1515" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611761817230" />
-    <state x="270" y="54" key="SettingsEditor" timestamp="1612147840390">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1612147840390" />
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1612600504664">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="449" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1612600504664" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1615204303510">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1615204303510" />
+    <state x="270" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1628101646708" />
   </component>
 </project>
