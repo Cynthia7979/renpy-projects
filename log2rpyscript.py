@@ -3,11 +3,20 @@ import re
 import random
 
 
+STRIP = tuple()
+STRIP = ('#', '（')
+
+
 class Dialogue(object):
-    def __init__(self, character, msg, isRoll=False, status=None):
+    def __init__(self, character, msg, is_roll=False, status=None):
+        for symbol in STRIP:
+            if msg.startswith(symbol):
+                msg = msg[1:]
+                break
+
         self.character = character
         self.msg = msg
-        self.isRoll = isRoll
+        self.isRoll = is_roll
         self.status = status
 
     def __repr__(self):
@@ -104,7 +113,7 @@ def raw2Log(raw_fh):
         character = infoline[:re.search('\s\d\d\d\d/\d\d/\d\d', infoline).span()[0]]
         msg = msgline.replace('    ', '').replace('\n', '')
         all_dialogues.add_dialogue(
-            Dialogue(character, msg, isRoll=isRolling, status=status)
+            Dialogue(character, msg, is_roll=isRolling, status=status)
         )
 
     return all_dialogues
