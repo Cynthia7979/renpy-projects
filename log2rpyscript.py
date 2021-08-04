@@ -110,8 +110,10 @@ def raw2Log(raw_fh):
                 status = '大失败'
             elif '失败' in msgline:
                 status = '失败'
+            elif '.rh' in msgline:
+                status = '暗骰'
         character = infoline[:re.search('\s\d\d\d\d/\d\d/\d\d', infoline).span()[0]]
-        msg = msgline.replace('    ', '').replace('\n', '')
+        msg = msgline.replace('    ', '').replace('\n', '').replace('.rh', 'KP进行了一次暗骰')
         all_dialogues.add_dialogue(
             Dialogue(character, msg, is_roll=isRolling, status=status)
         )
