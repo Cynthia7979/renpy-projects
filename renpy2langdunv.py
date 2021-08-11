@@ -63,7 +63,7 @@ def slice_between(s, start=None, end=None, rfind=False):
 
 
 def should_pass(dialogue):
-    pass_keywords = ('SAN CHECK', '检定', '成功', '失败', '1d100 =', )
+    pass_keywords = ('SAN CHECK', '检定', '成功', '失败', '1d100 =', '暗骰')
     for kw in pass_keywords:
         if kw in dialogue:
             return True
