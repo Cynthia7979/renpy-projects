@@ -13,6 +13,7 @@ def main():
     langdunv = open(output, 'w', encoding='utf-8')
 
     predefined_characters = []
+    ignored_keywords = ('play sound', 'queue sound')
     all_characters = set()
     # Start reading file
     for line in script.readlines():
@@ -29,8 +30,11 @@ def main():
             else:
                 character_name = character_seg
                 if character_name not in predefined_characters:  # Nonexistent character
-                    log(f'Warning: Ignoring nonexistent character "{character_name}" and their dialogue.')
-                    continue
+                    if character_name in ignored_keywords:
+                        continue
+                    else:
+                        log(f'Warning: Ignoring nonexistent character "{character_name}" and their dialogue.')
+                        continue
             log('Character:', character_name)
             all_characters.add(character_name)
 
@@ -49,7 +53,7 @@ def main():
     log('-------')
     log('Characters:')
     for name in all_characters:
-        log('    '+name)
+        log('    ' + name)
     log('-------\nDone.')
 
 
@@ -57,7 +61,7 @@ def slice_between(s, start=None, end=None, rfind=False):
     if not start: start = s[0]
     if not end: end = s[-1]
     if rfind:
-        return s[s.find(start)+len(start):s.rfind(end)]
+        return s[s.find(start) + len(start):s.rfind(end)]
     else:
         return s[s.find(start) + len(start):s.find(end)]
 

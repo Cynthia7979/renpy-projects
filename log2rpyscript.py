@@ -4,7 +4,7 @@ import random
 
 
 STRIP = tuple()
-STRIP = ('#', '（')
+# STRIP = ('#', '（')
 
 
 class Dialogue(object):
